@@ -1,0 +1,76 @@
+{
+  "projectId": "homeworks-b03f8",
+  "collections": [
+    {
+      "name": "classes",
+      "description": "Institutional class cohorts and associated subjects",
+      "fields": {
+        "id": { "type": "string", "description": "Unique class identifier (e.g., class_p1)" },
+        "name": { "type": "string", "description": "Class code: P1, P2, P3, C1, C2, C3, or C4" },
+        "subjects": { "type": "array", "description": "List of subjects offered for this class" }
+      }
+    },
+    {
+      "name": "teachers",
+      "description": "Subject-specialized teacher and HOD admin credentials and profiles",
+      "fields": {
+        "uid": { "type": "string", "description": "Teacher unique identifier" },
+        "username": { "type": "string", "description": "Username for teacher login" },
+        "password": { "type": "string", "description": "Teacher account password" },
+        "fullName": { "type": "string", "description": "Subject Teacher display name (e.g. Chemistry Teacher)" },
+        "role": { "type": "string", "description": "teacher or hod" },
+        "department": { "type": "string", "description": "Academic department" },
+        "subjects": { "type": "array", "description": "Teaching subject disciplines" },
+        "createdAt": { "type": "string", "description": "ISO timestamp" }
+      }
+    },
+    {
+      "name": "users",
+      "description": "Student profiles with custom username, Gmail address, and one-time class change tracking",
+      "fields": {
+        "uid": { "type": "string", "description": "Student user unique identifier" },
+        "email": { "type": "string", "description": "Student registered Gmail address" },
+        "fullName": { "type": "string", "description": "Official student full name" },
+        "customUsername": { "type": "string", "description": "Unique auto-generated handle (e.g., vansh_842)" },
+        "password": { "type": "string", "description": "Student portal password" },
+        "className": { "type": "string", "description": "Assigned cohort: P1, P2, P3, C1, C2, C3, or C4" },
+        "classLocked": { "type": "boolean", "description": "True when student has exhausted their one allowed class change" },
+        "classChangesRemaining": { "type": "number", "description": "Changes allowed (1 initially, 0 when locked)" },
+        "role": { "type": "string", "description": "student" },
+        "createdAt": { "type": "string", "description": "ISO timestamp" }
+      }
+    },
+    {
+      "name": "questions",
+      "description": "Assignments posted by teachers filtered by class and subject",
+      "fields": {
+        "id": { "type": "string", "description": "Unique question identifier" },
+        "teacherId": { "type": "string", "description": "UID of posting teacher" },
+        "teacherName": { "type": "string", "description": "Name of posting teacher" },
+        "className": { "type": "string", "description": "Target class: P1..P3, C1..C4" },
+        "subject": { "type": "string", "description": "Academic subject" },
+        "questionText": { "type": "string", "description": "Full assignment prompt text" },
+        "marks": { "type": "number", "description": "Maximum marks possible" },
+        "createdAt": { "type": "string", "description": "ISO timestamp" }
+      }
+    },
+    {
+      "name": "submissions",
+      "description": "Student handwritten answer submissions with base64 notebook photos and grading records",
+      "fields": {
+        "id": { "type": "string", "description": "Unique submission identifier" },
+        "questionId": { "type": "string", "description": "Reference question ID" },
+        "studentId": { "type": "string", "description": "Submitting student UID" },
+        "studentName": { "type": "string", "description": "Submitting student full name" },
+        "customUsername": { "type": "string", "description": "Submitting student username" },
+        "className": { "type": "string", "description": "Student class section" },
+        "subject": { "type": "string", "description": "Submission subject" },
+        "photoUrl": { "type": "string", "description": "Compressed base64 data URI of handwritten answer page" },
+        "submittedAt": { "type": "string", "description": "ISO timestamp of submission" },
+        "marksAwarded": { "type": "number", "description": "Teacher evaluated score, if graded" },
+        "evaluatedAt": { "type": "string", "description": "ISO timestamp of evaluation" },
+        "evaluatorName": { "type": "string", "description": "Name of grading teacher" }
+      }
+    }
+  ]
+}

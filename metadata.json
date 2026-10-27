@@ -1,0 +1,6 @@
+{
+  "name": "College work Portal - R.D. Engineering College, Ghaziabad",
+  "description": "College work Portal for R.D. Engineering College, Ghaziabad. Institutional handwritten answer submissions and faculty evaluation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

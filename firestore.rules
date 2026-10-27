@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Classes collection: public read for course cohort selection
+    match /classes/{classId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Teachers collection: public read for credential verification and subject matching
+    match /teachers/{teacherId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Users / Students collection: profile storage and authentication
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Questions collection: assignment listings by class & subject
+    match /questions/{questionId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Submissions collection: student notebook photos, evaluations, and admin clean-up
+    match /submissions/{submissionId} {
+      allow read: if true;
+      allow create, update, delete: if true;
+    }
+  }
+}
